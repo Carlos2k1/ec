@@ -9,33 +9,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class HomePage {
 
-  @ViewChild('email') email;
-  @ViewChild('senha') senha;
-
   constructor(public router : Router,
               public fire : AngularFireAuth){
-  }
-
-  logar(){
- 
-    this.fire.auth.signInWithEmailAndPassword(this.email.value,this.senha.value)
-      .then(()=>{
-        console.log('Logado com sucesso');
-        this.router.navigate(['/lista-de-clientes']);
-      })
-      .catch(()=>{
-        console.log('Login Inválido');
-      })
-  }
-
-  cadastrar(){
-    this.fire.auth.createUserWithEmailAndPassword(this.email.value,this.senha.value)
-    .then(()=> {
-      console.log("Cadastrado com sucesso!");
-    }).catch(()=>{
-      console.log("Usuário inválido");
-    })
-  
   }
 
 }
